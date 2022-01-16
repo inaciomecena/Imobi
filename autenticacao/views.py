@@ -62,8 +62,11 @@ def logar(request):
 
             messages.add_message(request, constants.ERROR, 'Username ou senha inválidos')
             return redirect('/auth/logar')
-            
+
         else:
             auth.login(request, usuario)
             return redirect('/')
 
+def sair(request):
+    auth.logout(request)
+    return redirect('/auth/logar')
